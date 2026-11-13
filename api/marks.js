@@ -32,7 +32,7 @@ async function handler(req, res) {
 
   if (req.method !== "POST") return send(res, 405, { error: "Methode nicht erlaubt" });
   const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : (req.body || {});
-  const at = Date.now(), by = session.n;
+  const at = Date.now(), by = session.n, team = session.r === "team";
   const segIds = new Set(project.segments.map((s) => s.id));
 
   if (body.kind === "mark") {
@@ -43,18 +43,18 @@ async function handler(req, res) {
     const pos = Math.max(0, Math.min(999, parseInt(body.pos, 10) || 0));
     const cmds = !status && !comment && !pos
       ? [["HDEL", K("marks"), body.id]]
-      : [["HSET", K("marks"), body.id, JSON.stringify({ status, comment, pos, by, at })]];
-    const out = await redis(...cmds, ["INCR", K("rev")], ["LPUSH", K("log"), JSON.stringify({ id: body.id, status, comment, pos, by, at })], ["LTRIM", K("log"), 0, 1999]);
+      : [["HSET", K("marks"), body.id, JSON.stringify({ status, comment, pos, by, team, at })]];
+    const out = await redis(...cmds, ["INCR", K("rev")], ["LPUSH", K("log"), JSON.stringify({ id: body.id, status, comment, pos, by, team, at })], ["LTRIM", K("log"), 0, 1999]);
     return send(res, 200, { ok: true, rev: out[1] });
   }
   if (body.kind === "settings") {
     const goal = Math.max(10, Math.min(3600, parseInt(body.goal, 10) || 90));
-    const out = await redis(["SET", K("settings"), JSON.stringify({ goal, by, at })], ["INCR", K("rev")]);
+    const out = await redis(["SET", K("settings"), JSON.stringify({ goal, by, team, at })], ["INCR", K("rev")]);
     return send(res, 200, { ok: true, rev: out[1] });
   }
   if (body.kind === "general") {
     const text = String(body.text || "").slice(0, 10000);
-    const out = await redis(["SET", K("general"), JSON.stringify({ text, by, at })], ["INCR", K("rev")]);
+    const out = await redis(["SET", K("general"), JSON.stringify({ text, by, team, at })], ["INCR", K("rev")]);
     return send(res, 200, { ok: true, rev: out[1] });
   }
   return send(res, 400, { error: "Unbekannte Änderung" });

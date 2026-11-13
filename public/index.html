@@ -2,25 +2,36 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<title>Content Suite · Ad Boutique</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+<meta name="theme-color" content="#ffffff">
+<title>Content Suite · ad.boutique</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <style>
-:root{--bg:#f3f6f5;--surface:#fff;--ink:#0f2626;--muted:#5a6f6c;--line:#d7e1de;--brand:#009e76}
-@media (prefers-color-scheme: dark){:root{--bg:#0a1514;--surface:#10201f;--ink:#e3eeeb;--muted:#93a8a4;--line:#223a38;--brand:#2bbf96;color-scheme:dark}}
-body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--bg);color:var(--ink);font-family:Roboto,system-ui,sans-serif;padding:16px;box-sizing:border-box}
-.card{max-width:440px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px}
-.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--brand);font-weight:700}
-h1{margin:6px 0 10px;font-size:26px}
-p{color:var(--muted);line-height:1.5;margin:0}
+@font-face{font-family:"Satoshi";src:url(/assets/fonts/Satoshi-Variable.woff2) format("woff2");font-weight:300 900;font-display:swap}
+@font-face{font-family:"ADB Serif";src:url(/assets/fonts/InstrumentSerif-Italic-latin.woff2) format("woff2");font-style:italic;font-weight:400;font-display:swap}
+:root{color-scheme:light;--lime:#cdff00;--ink:#101010;--paper:#f4f3eb;--white:#fff;--graphite:#66665f;--line-dotted:rgba(15,15,15,.28);--gutter:clamp(20px,4vw,64px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100dvh;display:flex;flex-direction:column;background:var(--white);color:var(--ink);font-family:"Satoshi","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;
+  padding-left:max(var(--gutter),env(safe-area-inset-left,0px));padding-right:max(var(--gutter),env(safe-area-inset-right,0px))}
+.topbar{height:72px;display:flex;align-items:center;gap:12px;border-bottom:1px dotted var(--line-dotted)}
+.wordmark{font-weight:700;font-size:23px;letter-spacing:-.01em}
+.topbar small{font-size:14px;color:var(--graphite)}
+main{flex:1;display:flex;flex-direction:column;justify-content:center;gap:20px;padding-block:64px;max-width:900px}
+h1{font-weight:700;font-size:clamp(39px,5.56vw,80px);line-height:1.04;letter-spacing:-.025em;margin:0;text-wrap:balance}
+h1 em{font-family:"ADB Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.005em}
+p{font-size:clamp(17px,1.4vw,21px);line-height:1.5;color:var(--graphite);margin:0;max-width:52ch}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 1px var(--ink);margin-right:10px;vertical-align:2px}
+footer{padding-block:24px;border-top:1px dotted var(--line-dotted);font-size:14px;color:var(--graphite)}
 </style>
 </head>
 <body>
-<div class="card">
-  <div class="eyebrow">Ad Boutique</div>
-  <h1>Content Suite</h1>
-  <p>Hier stimmen wir Videos und Inhalte mit unseren Kund:innen ab. Bitte öffnen Sie den persönlichen Link aus Ihrer Einladung, z. B. contentsuite.ad.boutique/projektname.</p>
-</div>
+<header class="topbar"><span class="wordmark">ad.boutique</span><small>Content Suite</small></header>
+<main>
+  <h1>Feedback, das direkt <em>im Schnitt landet.</em></h1>
+  <p><span class="dot" aria-hidden="true"></span>Hier stimmen wir Videos und Inhalte mit unseren Kund:innen ab. Bitte öffnen Sie den persönlichen Link aus Ihrer Einladung, z. B. contentsuite.ad.boutique/projektname.</p>
+</main>
+<footer>ad.boutique · Wien</footer>
 </body>
 </html>

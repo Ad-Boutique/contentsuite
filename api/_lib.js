@@ -31,10 +31,15 @@ function safeEqual(a, b) {
   return x.length === y.length && timingSafeEqual(x, y);
 }
 
+// Rolle zum Code: "client" fuer den Projektcode, "team" fuer den Ad-Boutique-Code (TEAM_CODE, gilt fuer alle Projekte)
 export function checkCode(id, code) {
+  const given = String(code || "").trim().toUpperCase();
+  if (!given) return null;
+  const team = String(process.env.TEAM_CODE || "").trim().toUpperCase();
+  if (team && safeEqual(given, team)) return "team";
   const expected = codeFor(id);
-  if (!expected) return false;
-  return safeEqual(String(code || "").trim().toUpperCase(), expected.toUpperCase());
+  if (expected && safeEqual(given, expected.toUpperCase())) return "client";
+  return null;
 }
 
 function secret() {
@@ -46,8 +51,8 @@ const b64 = (s) => Buffer.from(s).toString("base64url");
 const unb64 = (s) => Buffer.from(s, "base64url").toString("utf8");
 const sign = (payload) => createHmac("sha256", secret()).update(payload).digest("base64url");
 
-export function makeSession(id, name) {
-  const payload = b64(JSON.stringify({ p: id, n: name, t: Date.now() }));
+export function makeSession(id, name, role) {
+  const payload = b64(JSON.stringify({ p: id, n: name, r: role === "team" ? "team" : "client", t: Date.now() }));
   return payload + "." + sign(payload);
 }
 

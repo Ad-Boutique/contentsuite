@@ -15,6 +15,10 @@ Für den Schnitt gibt es einen Export für DaVinci Resolve:
 |---|---|---|
 | `/ksg26` | Kommunalkredit | KSG 2026 Aftermovie, Auswahl für die Kurzversion |
 
+## Design
+
+Nach dem Designsystem der Website (Ad-Boutique/website, `styles/tokens.css`): Weiß als Grund, Paper als Akzentfläche, Ink nur für den Player, Lime nur als Licht (aktiv, Fokus, Hover-Kreis), Satoshi mit kursiver Serife (Instrument Serif) als Zwei-Ton-Headline, 4 px Radius, gepunktete Linien. Schriften liegen selbst gehostet in `public/assets/fonts` (keine Anfragen an Google, DSGVO).
+
 ## Aufbau
 
 ```
@@ -38,6 +42,7 @@ scripts/        Lokaler Testserver
 3. **Umgebungsvariablen** (Settings > Environment Variables, für Production):
    - `SESSION_SECRET`: langer Zufallswert (mindestens 24 Zeichen)
    - `ACCESS_CODES`: `ksg26=DER-ZUGANGSCODE` (mehrere Projekte mit Komma trennen: `ksg26=CODE-1,projekt2=CODE-2`)
+   - `TEAM_CODE`: ein Code für das ad.boutique-Team, gilt für alle Projekte. Wer sich damit anmeldet, ist als „ad.boutique“ gekennzeichnet und sieht den DaVinci-Export.
 4. **Neu deployen** (Deployments > Redeploy), damit die Variablen greifen.
 5. **Domain**: Settings > Domains > `contentsuite.ad.boutique` hinzufügen. Beim DNS-Anbieter von ad.boutique einen CNAME-Eintrag setzen: `contentsuite` → `cname.vercel-dns.com`.
 

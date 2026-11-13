@@ -25,7 +25,7 @@ if (useFake) { process.env.UPSTASH_REDIS_REST_URL = "http://fake-redis"; process
 if (useFake) globalThis.fetch = async (url, opts) => String(url).startsWith("http://fake-redis")
   ? new Response(JSON.stringify(fakeRedis(JSON.parse(opts.body))), { status: 200 }) : realFetch(url, opts);
 
-const types = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".json": "application/json", ".mp4": "video/mp4", ".jpg": "image/jpeg", ".txt": "text/plain" };
+const types = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".json": "application/json", ".mp4": "video/mp4", ".jpg": "image/jpeg", ".txt": "text/plain", ".woff2": "font/woff2", ".svg": "image/svg+xml", ".png": "image/png" };
 const root = process.cwd();
 http.createServer(async (req, res) => {
   const u = new URL(req.url, "http://x");

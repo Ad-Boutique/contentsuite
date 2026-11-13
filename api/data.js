@@ -7,7 +7,7 @@ async function handler(req, res) {
   if (!project) return send(res, 404, { error: "Projekt nicht gefunden" });
   const session = readSession(req, id);
   if (!session) return send(res, 401, { error: "Bitte anmelden", title: project.title });
-  return send(res, 200, { me: session.n, project });
+  return send(res, 200, { me: session.n, role: session.r || "client", project });
 }
 
 export default safe(handler);

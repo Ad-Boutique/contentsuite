@@ -1,0 +1,26 @@
+Schriften in diesem Ordner
+
+Satoshi-Variable.woff2
+  Hersteller: Indian Type Foundry (ITF), Vertrieb ueber Fontshare (fontshare.com)
+  Lizenz: ITF Free Font License (FFL), erlaubt kommerzielle Nutzung und Einbettung im Web
+  Herkunft: Kopie aus adb-master/assets/fonts (Daniel, Stand 03.10.2026)
+  Offen: vollstaendigen Lizenztext der FFL aus dem Fontshare-Download beilegen (Download war im Build-Container gesperrt)
+
+InstrumentSerif-Italic-latin.woff2
+  Hersteller: The Instrument Serif Project Authors
+  Lizenz: SIL Open Font License 1.1, Text siehe OFL-InstrumentSerif.txt
+  Herkunft: npm-Paket @fontsource/instrument-serif 5.3.0, Teilmenge latin (deckt Umlaute und ss-Ligatur ab)
+  Zweck: Ersatz fuer Amandine (Adobe Fonts), bis eine selbst hostbare Lizenz geklaert ist
+  Perf (25.10.2026): weiter beschnitten mit fonttools pyftsubset (Basic Latin, Latin-1, Typo-Anfuehrungszeichen, Euro,
+  ohne Hinting), 22 KB -> 14 KB. OFL 1.1 erlaubt Aenderungen, kein Reserved Font Name. Gleiches fuer Regular (21 KB -> 14 KB).
+
+InstrumentSerif-Regular-latin.woff2 (v4, 24.10.2026)
+  Hersteller: The Instrument Serif Project Authors
+  Lizenz: SIL Open Font License 1.1, Text siehe OFL-InstrumentSerif.txt
+  Herkunft: npm-Paket @fontsource/instrument-serif 5.3.0 (npm pack, keine Abhaengigkeit), Teilmenge latin, 21 KB
+  Zweck: aufrechte Serife nur fuer grosse Kennzahlen (Daniel setzt dort Amandine 400 normal, Figma-Platzhalter Instrument Serif Regular), nicht vorgeladen
+
+Nicht uebernommen
+  Amandine: nur im Adobe-Fonts-Kit udf8wjj, keine Datei, Selbsthosting ueber Adobe Fonts nicht erlaubt
+  Reckless (Regular, Italic, Medium): kommerzielle Schrift (Displaay), Lizenz fuer Web-Selbsthosting nicht belegt
+  Manrope, Bricolage Grotesque: nur per Google-Fonts-Import in adb-homepage, im aktuellen Stand nicht mehr verwendet

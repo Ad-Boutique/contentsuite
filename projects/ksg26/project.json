@@ -1,10 +1,10 @@
 {
  "id": "ksg26",
  "client": "Kommunalkredit",
- "eyebrow": "Kommunale Sommergespräche 2026 · Kommunalkredit × Ad Boutique",
+ "eyebrow": "Kommunale Sommergespräche 2026 · Kommunalkredit",
  "title": "KSG 2026 Aftermovie-Kürzung",
- "heading": "Aftermovie: Auswahl für die Kurzversion",
- "lead": "Transkript der Langversion (KSG26_AFTERMOVIE_V3_LONG, 7:00 min) mit Timecodes. Markieren Sie, welche Passagen in die Kurzversion müssen. Ad Boutique übernimmt die Auswahl direkt in den Schnitt.",
+ "heading": "Aftermovie:",
+ "lead": "Transkript der Langversion (KSG26_AFTERMOVIE_V3_LONG, 7:00 min) mit Timecodes. Markieren Sie, welche Passagen in die Kurzversion müssen. Wir übernehmen Ihre Auswahl direkt in den Schnitt.",
  "file": "KSG26_AFTERMOVIE_V3_LONG.mp4",
  "fps": 25,
  "tcStartFrames": 90000,
@@ -863,5 +863,6 @@
    "short": false,
    "lang": ""
   }
- ]
+ ],
+ "headingSerif": "Auswahl für die Kurzversion"
 }

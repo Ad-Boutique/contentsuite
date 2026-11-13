@@ -21,11 +21,12 @@ async function handler(req, res) {
   if (tries === 1) await redis(["EXPIRE", key, 900]);
   if (tries > 10) return send(res, 429, { error: "Zu viele Versuche. Bitte in 15 Minuten erneut probieren." });
 
-  if (!checkCode(id, body.code)) return send(res, 401, { error: "Der Zugangscode stimmt nicht." });
+  const role = checkCode(id, body.code);
+  if (!role) return send(res, 401, { error: "Der Zugangscode stimmt nicht." });
 
   await redis(["DEL", key]);
-  res.setHeader("Set-Cookie", sessionCookie(id, makeSession(id, name), 60 * 60 * 24 * 60));
-  return send(res, 200, { ok: true, name });
+  res.setHeader("Set-Cookie", sessionCookie(id, makeSession(id, name, role), 60 * 60 * 24 * 60));
+  return send(res, 200, { ok: true, name, role });
 }
 
 export default safe(handler);
