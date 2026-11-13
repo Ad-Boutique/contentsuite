@@ -1,0 +1,867 @@
+{
+ "id": "ksg26",
+ "client": "Kommunalkredit",
+ "eyebrow": "Kommunale Sommergespräche 2026 · Kommunalkredit × Ad Boutique",
+ "title": "KSG 2026 Aftermovie-Kürzung",
+ "heading": "Aftermovie: Auswahl für die Kurzversion",
+ "lead": "Transkript der Langversion (KSG26_AFTERMOVIE_V3_LONG, 7:00 min) mit Timecodes. Markieren Sie, welche Passagen in die Kurzversion müssen. Ad Boutique übernimmt die Auswahl direkt in den Schnitt.",
+ "file": "KSG26_AFTERMOVIE_V3_LONG.mp4",
+ "fps": 25,
+ "tcStartFrames": 90000,
+ "duration": 420.2,
+ "defaultGoal": 90,
+ "shortVersion": {
+  "label": "bisherige Kurzversion",
+  "duration": "1:38"
+ },
+ "video": "/media/ksg26-e67f7792e986654fa4f220a4/aftermovie_720p.mp4",
+ "thumbs": {
+  "url": "/media/ksg26-e67f7792e986654fa4f220a4/thumbs.jpg",
+  "cols": 20,
+  "w": 160,
+  "h": 90,
+  "count": 421
+ },
+ "segments": [
+  {
+   "id": "p001",
+   "type": "broll",
+   "s": 0.0,
+   "e": 6.3,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p002",
+   "type": "broll",
+   "s": 6.3,
+   "e": 10.78,
+   "text": "",
+   "speaker": "",
+   "short": true,
+   "lang": ""
+  },
+  {
+   "id": "p003",
+   "type": "talk",
+   "s": 10.78,
+   "e": 13.54,
+   "text": "Herzlich Willkommen bei den Kommunalen Sommergesprächen 2026.",
+   "speaker": "Begrüßung (Off-Stimme)",
+   "short": true,
+   "lang": "de"
+  },
+  {
+   "id": "p004",
+   "type": "talk",
+   "s": 13.54,
+   "e": 15.7,
+   "text": "Schön, dass Sie nach Bad Aussee gekommen sind.",
+   "speaker": "Begrüßung (Off-Stimme)",
+   "short": true,
+   "lang": "de"
+  },
+  {
+   "id": "p005",
+   "type": "broll",
+   "s": 15.7,
+   "e": 19.0,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p006",
+   "type": "broll",
+   "s": 19.0,
+   "e": 22.07,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p007",
+   "type": "talk",
+   "s": 22.07,
+   "e": 24.9,
+   "text": "AI is going to transform almost everything.",
+   "speaker": "",
+   "short": true,
+   "lang": "en"
+  },
+  {
+   "id": "p008",
+   "type": "talk",
+   "s": 24.9,
+   "e": 31.78,
+   "text": "Now, what we have to do is to link these AI capabilities with the manufacturing sector.",
+   "speaker": "",
+   "short": false,
+   "lang": "en"
+  },
+  {
+   "id": "p009",
+   "type": "talk",
+   "s": 31.78,
+   "e": 35.0,
+   "text": "The energy sector becoming increasingly independent",
+   "speaker": "Vincent Freely · Investment Vice President, Vauban",
+   "short": false,
+   "lang": "en"
+  },
+  {
+   "id": "p010",
+   "type": "talk",
+   "s": 35.0,
+   "e": 40.08,
+   "text": "would require huge investments in power grids, in power generation.",
+   "speaker": "Vincent Freely · Investment Vice President, Vauban",
+   "short": false,
+   "lang": "en"
+  },
+  {
+   "id": "p011",
+   "type": "talk",
+   "s": 40.08,
+   "e": 53.04,
+   "text": "At a time of very tight fiscal or public budgets, the need for private investment, the need for private capital to go into infrastructure is a big opportunity.",
+   "speaker": "Wiebke Schloemer · Director, IFC",
+   "short": false,
+   "lang": "en"
+  },
+  {
+   "id": "p012",
+   "type": "broll",
+   "s": 53.04,
+   "e": 56.8,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p013",
+   "type": "broll",
+   "s": 56.8,
+   "e": 61.6,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p014",
+   "type": "broll",
+   "s": 61.6,
+   "e": 65.4,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p015",
+   "type": "broll",
+   "s": 65.4,
+   "e": 69.4,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p016",
+   "type": "broll",
+   "s": 69.4,
+   "e": 73.2,
+   "text": "",
+   "speaker": "",
+   "short": true,
+   "lang": ""
+  },
+  {
+   "id": "p017",
+   "type": "talk",
+   "s": 73.2,
+   "e": 79.28,
+   "text": "Rechenzentrumsleistung wird gefragt sein, schnelle Netze werden gefragt sein und mehr denn je gefragt sein.",
+   "speaker": "Johannes Pressl · Präsident, Österreichischer Gemeindebund",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p018",
+   "type": "talk",
+   "s": 79.28,
+   "e": 81.56,
+   "text": "Und gerade in den Gemeinden.",
+   "speaker": "Johannes Pressl · Präsident, Österreichischer Gemeindebund",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p019",
+   "type": "talk",
+   "s": 81.56,
+   "e": 85.96,
+   "text": "Wir haben eine Queue von rund 30.000 Megawatt, die angestoßen werden will.",
+   "speaker": "Gerhard Christiner · Vorstand, Austrian Power Grid (APG)",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p020",
+   "type": "talk",
+   "s": 85.96,
+   "e": 88.46,
+   "text": "Die Verbrauchsspitze in Österreich ist 11.000 Megawatt.",
+   "speaker": "Gerhard Christiner · Vorstand, Austrian Power Grid (APG)",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p021",
+   "type": "talk",
+   "s": 88.46,
+   "e": 93.88,
+   "text": "Das sieht schon die Dimensionen. Und es ist dringend erforderlich, dass wir in gewissen Bereichen das Netz stärker ausbauen.",
+   "speaker": "Gerhard Christiner · Vorstand, Austrian Power Grid (APG)",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p022",
+   "type": "talk",
+   "s": 93.88,
+   "e": 99.3,
+   "text": "Ich glaube, da braucht es einfach eine gewisse Offenheit für neue Projektarten und Finanzierungsarten.",
+   "speaker": "Thaddäus Kreisig · Principal Advisory (DACH), Aurora Energy Research",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p023",
+   "type": "talk",
+   "s": 99.3,
+   "e": 107.82,
+   "text": "Und das nehme ich auf jeden Fall wahr bei der Kommunalkredit, weil sie natürlich auch überregional tätig ist und aus anderen Ländern solche Business-Modelle schon kennt.",
+   "speaker": "Thaddäus Kreisig · Principal Advisory (DACH), Aurora Energy Research",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p024",
+   "type": "broll",
+   "s": 107.82,
+   "e": 111.6,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p025",
+   "type": "broll",
+   "s": 111.6,
+   "e": 114.59,
+   "text": "",
+   "speaker": "",
+   "short": true,
+   "lang": ""
+  },
+  {
+   "id": "p026",
+   "type": "talk",
+   "s": 114.59,
+   "e": 119.37,
+   "text": "Wahrscheinlich wird in den nächsten 20 Jahren eine Milliarde Roboter auf dem Planeten unterwegs sein.",
+   "speaker": "Anders Indset · Economic Philosopher",
+   "short": true,
+   "lang": "de"
+  },
+  {
+   "id": "p027",
+   "type": "talk",
+   "s": 119.37,
+   "e": 123.71,
+   "text": "Und jeder Einzelne von denen wird fünfmal das, was ein Mensch heute leistet.",
+   "speaker": "Anders Indset · Economic Philosopher",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p028",
+   "type": "talk",
+   "s": 123.71,
+   "e": 128.97,
+   "text": "Die Knappheiten werden verschwinden. Und dann geht natürlich die Ökonomie exponentiell nach oben.",
+   "speaker": "Anders Indset · Economic Philosopher",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p029",
+   "type": "talk",
+   "s": 128.97,
+   "e": 138.27,
+   "text": "Also könnten wir theoretisch ein Wirtschaftswachstumsszenario von 20 bis 30 Prozent Wachstum pro Jahr erst mal durch KI und danach humanoiden Roboter erleben.",
+   "speaker": "Anders Indset · Economic Philosopher",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p030",
+   "type": "broll",
+   "s": 138.27,
+   "e": 141.97,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p031",
+   "type": "talk",
+   "s": 141.97,
+   "e": 145.87,
+   "text": "Wenn Sie uns die Daten anschauen, es ging uns eigentlich noch nie besser.",
+   "speaker": "",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p032",
+   "type": "broll",
+   "s": 145.87,
+   "e": 149.21,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p033",
+   "type": "talk",
+   "s": 149.21,
+   "e": 151.97,
+   "text": "In Europe, all countries are small.",
+   "speaker": "",
+   "short": true,
+   "lang": "en"
+  },
+  {
+   "id": "p034",
+   "type": "talk",
+   "s": 151.97,
+   "e": 155.01,
+   "text": "The problem is that some have not yet noticed it.",
+   "speaker": "",
+   "short": false,
+   "lang": "en"
+  },
+  {
+   "id": "p035",
+   "type": "talk",
+   "s": 155.01,
+   "e": 160.37,
+   "text": "I mean, with all respect, Germany and France are very small compared to the United States or China.",
+   "speaker": "",
+   "short": false,
+   "lang": "en"
+  },
+  {
+   "id": "p036",
+   "type": "talk",
+   "s": 160.37,
+   "e": 162.41,
+   "text": "So, we need scale of Europe.",
+   "speaker": "",
+   "short": false,
+   "lang": "en"
+  },
+  {
+   "id": "p037",
+   "type": "broll",
+   "s": 162.41,
+   "e": 166.3,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p038",
+   "type": "broll",
+   "s": 166.3,
+   "e": 169.1,
+   "text": "",
+   "speaker": "",
+   "short": true,
+   "lang": ""
+  },
+  {
+   "id": "p039",
+   "type": "broll",
+   "s": 169.1,
+   "e": 175.49,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p040",
+   "type": "talk",
+   "s": 175.49,
+   "e": 179.86,
+   "text": "Wie würden Sie die Kommunalen Sommergespräche mit drei Worten beschreiben?",
+   "speaker": "Interviewfrage",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p041",
+   "type": "talk",
+   "s": 179.86,
+   "e": 183.34,
+   "text": "Informativ, bewegend und fortschrittlich.",
+   "speaker": "Gast (Kurzinterview)",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p042",
+   "type": "talk",
+   "s": 183.34,
+   "e": 186.66,
+   "text": "Magnificent, exzellent und sehr nützlich.",
+   "speaker": "Gast (Kurzinterview)",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p043",
+   "type": "talk",
+   "s": 186.66,
+   "e": 189.24,
+   "text": "Innovativ, kommunikativ und interessant.",
+   "speaker": "Gast (Kurzinterview)",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p044",
+   "type": "broll",
+   "s": 189.24,
+   "e": 191.6,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p045",
+   "type": "talk",
+   "s": 191.6,
+   "e": 202.76,
+   "text": "Ich glaube, dass man gerade mit Digitalisierung und mit künstlicher Intelligenz wahnsinnig viel bewegen kann, positiv machen kann, was früher undenkbar gewesen ist.",
+   "speaker": "Wolfgang Schüssel · Bundeskanzler a. D.",
+   "short": true,
+   "lang": "de"
+  },
+  {
+   "id": "p046",
+   "type": "talk",
+   "s": 202.76,
+   "e": 205.4,
+   "text": "Wir müssen klimafit werden, wir müssen digitaler sein.",
+   "speaker": "Helga Berger · Österreichische Vertreterin am Europäischen Rechnungshof",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p047",
+   "type": "talk",
+   "s": 205.4,
+   "e": 210.14,
+   "text": "Und wir müssen vor allem sicherer werden. Das Sicherheitsthema ist ein riesiges Thema, eine riesige Herausforderung.",
+   "speaker": "Helga Berger · Österreichische Vertreterin am Europäischen Rechnungshof",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p048",
+   "type": "talk",
+   "s": 210.14,
+   "e": 213.36,
+   "text": "Das ist die wesentlichste Frage derzeit, die uns herumtreibt.",
+   "speaker": "Beate Meinl-Reisinger · Außenministerin",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p049",
+   "type": "talk",
+   "s": 213.36,
+   "e": 231.1,
+   "text": "Wie können wir angesichts der Herausforderungen im Bereich Sicherheit, digitale Transformation, wir brauchen aber auch europäische Netze, Netzausbau erneuerbarer Energien und natürlich eine älter werdende Gesellschaft, alle diese Ausgaben stemmen ohne genug Wachstum.",
+   "speaker": "Beate Meinl-Reisinger · Außenministerin",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p050",
+   "type": "talk",
+   "s": 231.1,
+   "e": 244.62,
+   "text": "Und wenn wir nicht wollen, dass unsere Infrastruktur, dass unsere gesamten Prozesse, unser gesamtes Leben und alles, worauf wir technologisch aufbauen, nur noch in den USA oder in Asien oder in Nachbarländern läuft, dann brauchen wir ganz dringend die Netze.",
+   "speaker": "",
+   "short": true,
+   "lang": "de"
+  },
+  {
+   "id": "p051",
+   "type": "broll",
+   "s": 244.62,
+   "e": 249.95,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p052",
+   "type": "talk",
+   "s": 249.95,
+   "e": 259.95,
+   "text": "Our role is to make sure that in a world where there is money but not infinite, we bring this money to the right project for Europe and for the society.",
+   "speaker": "Jacques Ripoll · CEO Kommunalkredit",
+   "short": true,
+   "lang": "en"
+  },
+  {
+   "id": "p053",
+   "type": "broll",
+   "s": 259.95,
+   "e": 267.6,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p054",
+   "type": "broll",
+   "s": 267.6,
+   "e": 271.9,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p055",
+   "type": "broll",
+   "s": 271.9,
+   "e": 278.0,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p056",
+   "type": "broll",
+   "s": 278.0,
+   "e": 281.56,
+   "text": "",
+   "speaker": "",
+   "short": true,
+   "lang": ""
+  },
+  {
+   "id": "p057",
+   "type": "talk",
+   "s": 281.56,
+   "e": 291.3,
+   "text": "Such a conference, the Kommunale Sommergespräche, unites all of these participants at the same location and promotes a proactive dialogue between all these parties.",
+   "speaker": "",
+   "short": false,
+   "lang": "en"
+  },
+  {
+   "id": "p058",
+   "type": "broll",
+   "s": 291.3,
+   "e": 293.0,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p059",
+   "type": "talk",
+   "s": 293.0,
+   "e": 300.71,
+   "text": "Trust between business partners, between any stakeholders is actually key, because trust helps to build predictability.",
+   "speaker": "",
+   "short": false,
+   "lang": "en"
+  },
+  {
+   "id": "p060",
+   "type": "broll",
+   "s": 300.71,
+   "e": 304.6,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p061",
+   "type": "broll",
+   "s": 304.6,
+   "e": 307.3,
+   "text": "",
+   "speaker": "",
+   "short": true,
+   "lang": ""
+  },
+  {
+   "id": "p062",
+   "type": "broll",
+   "s": 307.3,
+   "e": 310.0,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p063",
+   "type": "broll",
+   "s": 310.0,
+   "e": 313.6,
+   "text": "",
+   "speaker": "",
+   "short": true,
+   "lang": ""
+  },
+  {
+   "id": "p064",
+   "type": "broll",
+   "s": 313.6,
+   "e": 317.0,
+   "text": "",
+   "speaker": "",
+   "short": true,
+   "lang": ""
+  },
+  {
+   "id": "p065",
+   "type": "broll",
+   "s": 317.0,
+   "e": 320.0,
+   "text": "",
+   "speaker": "",
+   "short": true,
+   "lang": ""
+  },
+  {
+   "id": "p066",
+   "type": "broll",
+   "s": 320.0,
+   "e": 322.8,
+   "text": "",
+   "speaker": "",
+   "short": true,
+   "lang": ""
+  },
+  {
+   "id": "p067",
+   "type": "broll",
+   "s": 322.8,
+   "e": 330.4,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p068",
+   "type": "broll",
+   "s": 330.4,
+   "e": 333.8,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p069",
+   "type": "broll",
+   "s": 333.8,
+   "e": 336.9,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p070",
+   "type": "broll",
+   "s": 336.9,
+   "e": 339.5,
+   "text": "",
+   "speaker": "",
+   "short": true,
+   "lang": ""
+  },
+  {
+   "id": "p071",
+   "type": "broll",
+   "s": 339.5,
+   "e": 342.4,
+   "text": "",
+   "speaker": "",
+   "short": true,
+   "lang": ""
+  },
+  {
+   "id": "p072",
+   "type": "broll",
+   "s": 342.4,
+   "e": 345.02,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p073",
+   "type": "talk",
+   "s": 345.02,
+   "e": 358.26,
+   "text": "I think it's a very interesting and quite unique event, in the sense that you have very like-minded people targeting, for most of them, this mid-market.",
+   "speaker": "Stéphane Calas · Partner, Cube",
+   "short": false,
+   "lang": "en"
+  },
+  {
+   "id": "p074",
+   "type": "talk",
+   "s": 358.26,
+   "e": 369.36,
+   "text": "The fact that you have so much attendance and enthusiasm is not just the nice settings around, but it's also the fact that it's very relevant for our business.",
+   "speaker": "Stéphane Calas · Partner, Cube",
+   "short": false,
+   "lang": "en"
+  },
+  {
+   "id": "p075",
+   "type": "talk",
+   "s": 369.36,
+   "e": 387.56,
+   "text": "And this is why we've been working very well, I believe, with Kommunalkredit, is that we have people in this team at Kommunalkredit who understand our businesses and are able to have this dialogue with us and adjust the structures and understand the underlying businesses.",
+   "speaker": "Stéphane Calas · Partner, Cube",
+   "short": false,
+   "lang": "en"
+  },
+  {
+   "id": "p076",
+   "type": "broll",
+   "s": 387.56,
+   "e": 388.9,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p077",
+   "type": "talk",
+   "s": 388.9,
+   "e": 393.12,
+   "text": "Wir haben momentan 1,7 Terawatt an erneuerbaren Energien.",
+   "speaker": "John-Philip Weiland · CCO Kommunalkredit",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p078",
+   "type": "talk",
+   "s": 393.12,
+   "e": 397.0,
+   "text": "in Europa, die auch noch auf momentan an den Netzanschluss warten.",
+   "speaker": "John-Philip Weiland · CCO Kommunalkredit",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p079",
+   "type": "broll",
+   "s": 397.0,
+   "e": 400.1,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p080",
+   "type": "broll",
+   "s": 400.1,
+   "e": 403.3,
+   "text": "",
+   "speaker": "",
+   "short": true,
+   "lang": ""
+  },
+  {
+   "id": "p081",
+   "type": "broll",
+   "s": 403.3,
+   "e": 405.89,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  },
+  {
+   "id": "p082",
+   "type": "talk",
+   "s": 405.89,
+   "e": 412.76,
+   "text": "Also ich glaube, dass da wirklich wahnsinnig spannende Zeiten auf uns zukommen und man sollte sich ja nicht fürchten.",
+   "speaker": "Wolfgang Schüssel · Bundeskanzler a. D.",
+   "short": true,
+   "lang": "de"
+  },
+  {
+   "id": "p083",
+   "type": "talk",
+   "s": 412.76,
+   "e": 414.08,
+   "text": "Angst lähmt!",
+   "speaker": "Wolfgang Schüssel · Bundeskanzler a. D.",
+   "short": false,
+   "lang": "de"
+  },
+  {
+   "id": "p084",
+   "type": "broll",
+   "s": 414.08,
+   "e": 420.2,
+   "text": "",
+   "speaker": "",
+   "short": false,
+   "lang": ""
+  }
+ ]
+}
