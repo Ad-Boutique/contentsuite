@@ -34,7 +34,7 @@ scripts/        Lokaler Testserver
 ## Einrichtung auf Vercel (einmalig)
 
 1. **Projekt anlegen**: Vercel > Add New > Project > dieses Repo importieren. Framework: „Other“, keine Build-Einstellungen nötig.
-2. **Datenbank verbinden**: Im Vercel-Projekt > Storage > Create Database > **Upstash for Redis** (Marketplace, Free-Plan reicht) > mit dem Projekt verbinden. Das setzt die Variablen `KV_REST_API_URL` und `KV_REST_API_TOKEN` automatisch.
+2. **Datenbank verbinden**: Im Vercel-Projekt > Storage > Redis-Datenbank anlegen und mit dem Projekt verbinden. Unterstützt werden Upstash (Variablen `KV_REST_API_URL`/`KV_REST_API_TOKEN` oder `UPSTASH_REDIS_REST_URL`/`_TOKEN`, auch mit eigenem Präfix) und klassisches Redis über `REDIS_URL`.
 3. **Umgebungsvariablen** (Settings > Environment Variables, für Production):
    - `SESSION_SECRET`: langer Zufallswert (mindestens 24 Zeichen)
    - `ACCESS_CODES`: `ksg26=DER-ZUGANGSCODE` (mehrere Projekte mit Komma trennen: `ksg26=CODE-1,projekt2=CODE-2`)
@@ -47,6 +47,10 @@ scripts/        Lokaler Testserver
 2. Vorschau-Video (H.264, 720p) und Vorschaubild-Raster nach `public/media/<id>-<zufall>/` legen und die Pfade in `project.json` eintragen.
 3. In Vercel `ACCESS_CODES` um `<id>=NEUER-CODE` ergänzen und neu deployen.
 4. Link `https://contentsuite.ad.boutique/<id>` und Code getrennt an die Kund:innen schicken.
+
+## Status prüfen
+
+`https://contentsuite.ad.boutique/api/health` zeigt, ob Sitzungsschlüssel, Zugangscodes und Datenbank eingerichtet sind (ohne Werte preiszugeben).
 
 ## Lokal testen
 

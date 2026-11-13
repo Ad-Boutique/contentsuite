@@ -1,10 +1,10 @@
 // Gemeinsame Markierungen: GET liest alles (mit Revisionsnummer), POST schreibt eine Änderung
-import { projectId, loadProject, readSession, redis, send } from "./_lib.js";
+import { projectId, loadProject, readSession, redis, send, safe } from "./_lib.js";
 
 const STATUS = new Set(["", "must", "maybe", "cut"]);
 const ID_RE = /^[a-z0-9]{1,12}$/i;
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   const id = projectId(req.query.project);
   const project = id && loadProject(id);
   if (!project) return send(res, 404, { error: "Projekt nicht gefunden" });
@@ -59,3 +59,5 @@ export default async function handler(req, res) {
   }
   return send(res, 400, { error: "Unbekannte Änderung" });
 }
+
+export default safe(handler);

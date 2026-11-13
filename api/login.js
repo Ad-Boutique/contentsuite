@@ -1,6 +1,6 @@
-import { projectId, loadProject, checkCode, makeSession, sessionCookie, redis, clientIp, send } from "./_lib.js";
+import { projectId, loadProject, checkCode, makeSession, sessionCookie, redis, clientIp, send, safe } from "./_lib.js";
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   if (req.method === "DELETE") {
     const id = projectId(req.query.project);
     if (id) res.setHeader("Set-Cookie", sessionCookie(id, "", 0));
@@ -17,7 +17,8 @@ export default async function handler(req, res) {
 
   // Schutz gegen Durchprobieren: höchstens 10 Versuche pro IP und Projekt in 15 Minuten
   const key = `cs:${id}:login:${clientIp(req)}`;
-  const [tries] = await redis(["INCR", key], ["EXPIRE", key, 900, "NX"]);
+  const [tries] = await redis(["INCR", key]);
+  if (tries === 1) await redis(["EXPIRE", key, 900]);
   if (tries > 10) return send(res, 429, { error: "Zu viele Versuche. Bitte in 15 Minuten erneut probieren." });
 
   if (!checkCode(id, body.code)) return send(res, 401, { error: "Der Zugangscode stimmt nicht." });
@@ -26,3 +27,5 @@ export default async function handler(req, res) {
   res.setHeader("Set-Cookie", sessionCookie(id, makeSession(id, name), 60 * 60 * 24 * 60));
   return send(res, 200, { ok: true, name });
 }
+
+export default safe(handler);

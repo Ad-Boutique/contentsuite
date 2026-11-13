@@ -39,7 +39,7 @@ export function checkCode(id, code) {
 
 function secret() {
   const s = process.env.SESSION_SECRET;
-  if (!s || s.length < 24) throw new Error("SESSION_SECRET fehlt oder ist zu kurz");
+  if (!s || s.length < 24) throw new HttpError(503, "Server ist noch nicht fertig eingerichtet (SESSION_SECRET)");
   return s;
 }
 const b64 = (s) => Buffer.from(s).toString("base64url");
@@ -71,24 +71,71 @@ export function sessionCookie(id, value, maxAge) {
   return `cs_${id}=${value}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${maxAge}`;
 }
 
-// Upstash Redis über REST (Vercel-Marketplace setzt KV_REST_API_* oder UPSTASH_REDIS_REST_*)
-function redisConf() {
-  const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
-  if (!url || !token) throw new Error("Redis ist nicht verbunden (UPSTASH_REDIS_REST_URL / _TOKEN fehlen)");
-  return { url: url.replace(/\/$/, ""), token };
+// Datenbank: Upstash über REST (Variablen *_KV_REST_API_URL/_TOKEN oder UPSTASH_REDIS_REST_URL/_TOKEN,
+// auch mit eigenem Präfix aus dem Vercel-Marketplace) oder klassisches Redis über REDIS_URL.
+function findEnv(suffixes) {
+  for (const suf of suffixes) {
+    if (process.env[suf]) return process.env[suf];
+    const k = Object.keys(process.env).find((n) => n.endsWith("_" + suf) && process.env[n]);
+    if (k) return process.env[k];
+  }
+  return null;
+}
+export function redisMode() {
+  const url = findEnv(["UPSTASH_REDIS_REST_URL", "KV_REST_API_URL"]);
+  const token = findEnv(["UPSTASH_REDIS_REST_TOKEN", "KV_REST_API_TOKEN"]);
+  if (url && token) return { mode: "rest", url: url.replace(/\/$/, ""), token };
+  const tcp = findEnv(["REDIS_URL", "KV_URL"]);
+  if (tcp && /^rediss?:\/\//.test(tcp)) return { mode: "tcp", url: tcp };
+  return { mode: "none" };
+}
+
+let tcpClient = null;
+async function tcp(url) {
+  if (tcpClient && tcpClient.isOpen) return tcpClient;
+  const { createClient } = await import("redis");
+  tcpClient = createClient({ url, socket: { connectTimeout: 5000 } });
+  tcpClient.on("error", () => {});
+  await tcpClient.connect();
+  return tcpClient;
 }
 
 export async function redis(...commands) {
-  const { url, token } = redisConf();
-  const res = await fetch(url + "/pipeline", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
-    body: JSON.stringify(commands),
-  });
-  if (!res.ok) throw new Error("Redis-Fehler " + res.status);
-  const out = await res.json();
-  return out.map((r) => { if (r.error) throw new Error(r.error); return r.result; });
+  const conf = redisMode();
+  if (conf.mode === "rest") {
+    const res = await fetch(conf.url + "/pipeline", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${conf.token}`, "Content-Type": "application/json" },
+      body: JSON.stringify(commands),
+    });
+    if (!res.ok) throw new HttpError(503, "Datenbank antwortet nicht (" + res.status + ")");
+    const out = await res.json();
+    return out.map((r) => { if (r.error) throw new Error(r.error); return r.result; });
+  }
+  if (conf.mode === "tcp") {
+    const c = await tcp(conf.url);
+    const out = [];
+    for (const cmd of commands) {
+      const r = await c.sendCommand(cmd.map(String));
+      out.push(typeof r === "string" && /^-?\d+$/.test(r) && cmd[0].toUpperCase() === "INCR" ? Number(r) : r);
+    }
+    return out;
+  }
+  throw new HttpError(503, "Datenbank ist nicht verbunden");
+}
+
+export class HttpError extends Error { constructor(status, message) { super(message); this.status = status; } }
+
+// Fehler abfangen, damit statt eines Absturzes eine verständliche Meldung kommt
+export function safe(handler) {
+  return async (req, res) => {
+    try { return await handler(req, res); }
+    catch (e) {
+      console.error("[contentsuite]", e && e.stack || e);
+      const status = e instanceof HttpError ? e.status : 500;
+      return send(res, status, { error: status === 500 ? "Interner Fehler. Bitte später erneut versuchen." : e.message });
+    }
+  };
 }
 
 export function clientIp(req) {

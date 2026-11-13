@@ -12,6 +12,7 @@ const fakeRedis = (cmds) => cmds.map(([c, k, ...a]) => {
   if (c === "DEL") { mem.delete(k); return { result: 1 }; }
   if (c === "INCR") { const v = Number(mem.get(k) || 0) + 1; mem.set(k, String(v)); return { result: v }; }
   if (c === "EXPIRE") return { result: 1 };
+  if (c === "PING") return { result: "PONG" };
   if (c === "HSET") { const h = mem.get(k) || {}; h[a[0]] = a[1]; mem.set(k, h); return { result: 1 }; }
   if (c === "HDEL") { const h = mem.get(k) || {}; delete h[a[0]]; mem.set(k, h); return { result: 1 }; }
   if (c === "HGETALL") { const h = mem.get(k) || {}; return { result: Object.entries(h).flat() }; }
@@ -19,8 +20,9 @@ const fakeRedis = (cmds) => cmds.map(([c, k, ...a]) => {
   return { error: "unbekannt " + c };
 });
 const realFetch = globalThis.fetch;
-process.env.UPSTASH_REDIS_REST_URL = "http://fake-redis"; process.env.UPSTASH_REDIS_REST_TOKEN = "x";
-globalThis.fetch = async (url, opts) => String(url).startsWith("http://fake-redis")
+const useFake = !process.env.REDIS_URL;   // mit REDIS_URL=redis://localhost:6379 gegen echtes Redis testen
+if (useFake) { process.env.UPSTASH_REDIS_REST_URL = "http://fake-redis"; process.env.UPSTASH_REDIS_REST_TOKEN = "x"; }
+if (useFake) globalThis.fetch = async (url, opts) => String(url).startsWith("http://fake-redis")
   ? new Response(JSON.stringify(fakeRedis(JSON.parse(opts.body))), { status: 200 }) : realFetch(url, opts);
 
 const types = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".json": "application/json", ".mp4": "video/mp4", ".jpg": "image/jpeg", ".txt": "text/plain" };
