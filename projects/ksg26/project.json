@@ -864,5 +864,8 @@
    "lang": ""
   }
  ],
- "headingSerif": "Auswahl für die Kurzversion"
+ "headingSerif": "Auswahl für die Kurzversion",
+ "notify": [
+  "lennart@ad.boutique"
+ ]
 }

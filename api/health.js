@@ -10,6 +10,7 @@ async function handler(req, res) {
     try { const [pong] = await redis(["PING"]); db = pong === "PONG" ? "ok" : "unerwartete Antwort"; }
     catch (e) { db = "Fehler: " + e.message; }
   }
-  return send(res, 200, { sessionSecret: secretOk, projekteMitCode: codes.length, datenbank: db, datenbankArt: mode });
+  const hub = !!(process.env.HUB_WEBHOOK_URL && process.env.HUB_WEBHOOK_SECRET);
+  return send(res, 200, { sessionSecret: secretOk, projekteMitCode: codes.length, teamCode: !!process.env.TEAM_CODE, datenbank: db, datenbankArt: mode, hubBenachrichtigung: hub ? "eingerichtet" : "aus" });
 }
 export default safe(handler);

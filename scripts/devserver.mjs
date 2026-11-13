@@ -8,7 +8,8 @@ const mem = new Map();
 const fakeRedis = (cmds) => cmds.map(([c, k, ...a]) => {
   c = c.toUpperCase();
   if (c === "GET") return { result: mem.get(k) ?? null };
-  if (c === "SET") { mem.set(k, a[0]); return { result: "OK" }; }
+  if (c === "SET") { if (a.includes("NX") && mem.has(k)) return { result: null }; mem.set(k, a[0]); return { result: "OK" }; }
+  if (c === "LRANGE") { return { result: (mem.get(k + ":list") || []).slice(+a[0], +a[1] + 1) }; }
   if (c === "DEL") { mem.delete(k); return { result: 1 }; }
   if (c === "INCR") { const v = Number(mem.get(k) || 0) + 1; mem.set(k, String(v)); return { result: v }; }
   if (c === "EXPIRE") return { result: 1 };
@@ -16,7 +17,8 @@ const fakeRedis = (cmds) => cmds.map(([c, k, ...a]) => {
   if (c === "HSET") { const h = mem.get(k) || {}; h[a[0]] = a[1]; mem.set(k, h); return { result: 1 }; }
   if (c === "HDEL") { const h = mem.get(k) || {}; delete h[a[0]]; mem.set(k, h); return { result: 1 }; }
   if (c === "HGETALL") { const h = mem.get(k) || {}; return { result: Object.entries(h).flat() }; }
-  if (c === "LPUSH" || c === "LTRIM") return { result: 1 };
+  if (c === "LPUSH") { const l = mem.get(k + ":list") || []; l.unshift(a[0]); mem.set(k + ":list", l); return { result: l.length }; }
+  if (c === "LTRIM") return { result: "OK" };
   return { error: "unbekannt " + c };
 });
 const realFetch = globalThis.fetch;

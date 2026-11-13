@@ -1,7 +1,9 @@
 // Gemeinsame Markierungen: GET liest alles (mit Revisionsnummer), POST schreibt eine Änderung
 import { projectId, loadProject, readSession, redis, send, safe } from "./_lib.js";
+import { notifyHub } from "./_notify.js";
 
 const STATUS = new Set(["", "must", "maybe", "cut"]);
+const base = (req) => (process.env.PUBLIC_BASE_URL || "https://" + (req.headers["x-forwarded-host"] || req.headers.host || "contentsuite.ad.boutique")).replace(/\/$/, "");
 const ID_RE = /^[a-z0-9]{1,12}$/i;
 
 async function handler(req, res) {
@@ -45,6 +47,7 @@ async function handler(req, res) {
       ? [["HDEL", K("marks"), body.id]]
       : [["HSET", K("marks"), body.id, JSON.stringify({ status, comment, pos, by, team, at })]];
     const out = await redis(...cmds, ["INCR", K("rev")], ["LPUSH", K("log"), JSON.stringify({ id: body.id, status, comment, pos, by, team, at })], ["LTRIM", K("log"), 0, 1999]);
+    await notifyHub(id, project, session, base(req)).catch(() => {});
     return send(res, 200, { ok: true, rev: out[1] });
   }
   if (body.kind === "settings") {
@@ -54,7 +57,8 @@ async function handler(req, res) {
   }
   if (body.kind === "general") {
     const text = String(body.text || "").slice(0, 10000);
-    const out = await redis(["SET", K("general"), JSON.stringify({ text, by, team, at })], ["INCR", K("rev")]);
+    const out = await redis(["SET", K("general"), JSON.stringify({ text, by, team, at })], ["INCR", K("rev")], ["LPUSH", K("log"), JSON.stringify({ id: "_general", comment: text ? "Allgemeines Feedback" : "", by, team, at })], ["LTRIM", K("log"), 0, 1999]);
+    await notifyHub(id, project, session, base(req)).catch(() => {});
     return send(res, 200, { ok: true, rev: out[1] });
   }
   return send(res, 400, { error: "Unbekannte Änderung" });
